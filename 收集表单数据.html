@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="root">
+        <form @submit.prevent="commit">
+            账号： <input type="text" v-model="userinfo.username"><br>
+            密码： <input type="password" v-model="userinfo.password"><br>
+            年龄： <input type="number" v-model="userinfo.age"><br>
+            性别： 男 <input type="radio" value="nan" name="sex" v-model="userinfo.sex">
+            女 <input type="radio" value="nv" name="sex" v-model="userinfo.sex"><br>
+            爱好：
+            学习<input type="checkbox" value="xuexi" v-model="userinfo.hobby">
+            打游戏<input type="checkbox" value="game" v-model="userinfo.hobby">
+            吃饭<input type="checkbox" value="eat" v-model="userinfo.hobby"><br>
+            所属校区：<select v-model="userinfo.city">
+                <option value="beijing">北京</option>
+                <option value="shanghai">上海</option>
+                <option value="shenzhen">深圳</option>
+            </select><br>
+            其他信息：<textarea cols="30" rows="8" v-model.lazy="userinfo.otherInfo"></textarea><br>
+            <input type="checkbox" v-model="userinfo.accept"> 阅读并接受<a href="https://wobs.top">《用户协议》</a>
+            <br><button>提交</button>
+        </form>
+    </div>
+
+</body>
+<script>
+    new Vue({
+        el: "#root",
+        data: {
+            userinfo: {
+                username: '',
+                password: '',
+                age: '',
+                sex: '',
+                hobby: [],
+                city: "",
+                otherInfo: "",
+                accept: ""
+            }
+
+        },
+        methods: {
+            commit() {
+                console.log(JSON.stringify(this.userinfo));
+            }
+        },
+    })
+</script>
+
+</html>

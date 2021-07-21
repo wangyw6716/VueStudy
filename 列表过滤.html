@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="root">
+        搜索<input type="text" v-model="keyword">
+        <ul>
+            <li v-for="p in filuser">
+                {{p.name}}--{{p.age}}
+            </li>
+        </ul>
+    </div>
+    <script>
+        new Vue({
+            el: "#root",
+            data: {
+                user: [
+                    {
+                        id: 01,
+                        name: "周杰伦",
+                        age: 21
+                    }, {
+                        id: 02,
+                        name: "马冬梅",
+                        age: 22
+                    }, {
+                        id: 03,
+                        name: "周冬雨",
+                        age: 23
+                    }, {
+                        id: 04,
+                        name: "温洁伦",
+                        age: 25
+                    }
+                ],
+                keyword: ""
+            },
+            computed: {
+                filuser() {
+                    return this.user.filter((p) => {
+                        console.log(this);
+                        return p.name.indexOf(this.keyword) != -1
+                    })
+                }
+            },
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+</head>
+
+<body>
+    <div id="root">
+        <h1>{{name}}</h1>
+        <a v-bind:href="url">wangbusi</a><br>
+        <input type="text" :value="url">
+        <input type="text" v-model="url">
+    </div>
+    <script>
+        new Vue({
+            el: "#root",
+            data: {
+                name: "汪布斯",
+                url: "https://www.wobs.top"
+            }
+        })
+        v1
+    </script>
+
+</body>
+
+</html>
